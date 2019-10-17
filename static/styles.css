@@ -31,8 +31,8 @@ body {
     box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     padding: 5px;
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 400px;
     margin-bottom: 25px;
 }
 .item:hover{
@@ -42,11 +42,11 @@ body {
 }
 
 .item img{
-    width: 300px;
+    width: 180px;
 }
 .item__title{
     color:lightseagreen;
-    font-size: 25px;
+    font-size: 21px;
 }
 .item__price{
     color: black;
