@@ -46,7 +46,7 @@ body {
 }
 .item__title{
     color:lightseagreen;
-    font-size: 23px;
+    font-size: 25px;
 }
 .item__price{
     color: black;
@@ -55,4 +55,12 @@ body {
 }
 .content a {
     text-decoration: none;
+}
+.itemContainer{
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    padding: 40px 20px;
+}
+.itemContainer .item__image{
+    width: 200px;
 }
