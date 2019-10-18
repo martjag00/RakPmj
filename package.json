@@ -2,9 +2,29 @@
   "name": "rakpmj",
   "version": "1.0.0",
   "scripts": {
-    "start": "node server.js"
+    "build": "webpack",
+    "start": "node server.js",
+    "start:dev": "npm run build && npm run start"
   },
   "dependencies": {
     "express": "^4.17.1"
-  }
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^5.0.4",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9"
+  },
+  "description": "Tere õhtust",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martjag00/RakPmj.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/martjag00/RakPmj/issues"
+  },
+  "homepage": "https://github.com/martjag00/RakPmj#readme"
 }
