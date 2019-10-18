@@ -7,6 +7,7 @@
     "start:dev": "webpack-dev-server --open --mode=\"development\""
   },
   "dependencies": {
+    "core-util-is": "^1.0.2",
     "express": "^4.17.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
