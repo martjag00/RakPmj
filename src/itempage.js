@@ -23,7 +23,7 @@ function setup() {
     titleElement.textContent = title;
     titleElement.className = "item__title";
 
-    const description = "PS4 on kriimuvaba ning töökorras. Kasutatud ainult 3 kuud."
+    const description = "PS4 on kriimuvaba ning töökorras. Kasutatud ainult 3 kuud.";
 
     const textElement = document.createElement("p");
     textElement.textContent = description;
