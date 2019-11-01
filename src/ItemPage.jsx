@@ -5,12 +5,12 @@ import {phones} from "./mydatabase.js";
 class ItemPage extends React.PureComponent {
 
     render() {
-        const item = phones[0];
+        const item= phones[0];
         return (
             <>
                 <Header/>
                 <div className={"itemContainer"}>
-                    <img src={item.imgSrc}/>
+                    <img src={item.imgSrc} />
                     <div className={"item__title"}>{item.title}</div>
                     <div className={"item__price"}>{item.price}</div>
                 </div>
@@ -20,4 +20,5 @@ class ItemPage extends React.PureComponent {
 }
 
 export default ItemPage;
+
 
