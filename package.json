@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "webpack",
-    "start": "node server.js",
+    "start": "node server/server.js",
     "start:dev": "webpack-dev-server --open --mode=\"development\"",
     "lint": "eslint --version"
   },
@@ -17,6 +17,7 @@
   "devDependencies": {
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
     "babel-eslint": "^10.0.3",
@@ -32,7 +33,7 @@
     "webpack-dev-server": "^3.8.2"
   },
   "description": "Tere õhtust",
-  "main": "server.js",
+  "main": "server/server.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/martjag00/RakPmj.git"
