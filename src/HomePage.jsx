@@ -28,6 +28,7 @@ class HomePage extends React.PureComponent {
             this.setState({
                 items
             });
+
         })
         .catch(err=>{
             console.log("err", err);
