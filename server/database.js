@@ -15,7 +15,7 @@ const getItems= () => {
         items.push({
             ...laptop,
             id: "laptops-"+index,
-            category: "laptop"
+            category: "laptops"
         })
     });
     return items;
