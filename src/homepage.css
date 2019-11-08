@@ -1,9 +1,36 @@
-.itemFilters-wrapper{
-    display: flex;
-    width: 965px;
-    margin: 0 auto;
-    margin-bottom: 25px;
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: black;
 }
-.itemFilters-wrapper> div{
+
+.filters-wrapper {
+    border-radius: 5px;
+    padding: 15px;
+    background: black;
+    margin: 0px 5px;
+    display: flex;
+}
+
+.filters-wrapper > .toggler {
     margin-right: 25px;
+}
+
+.body-wrapper{
+    max-width: 1000px;
+    margin: 0 auto;
+    background-image: linear-gradient(to bottom, #000000, #070506, #0e0b0b, #130f0f, #171312, #211713, #2b1a14, #341e14, #462312, #57290e, #692f08, #7a3500);
+}
+
+.items-header-wrapper{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 5px;
+    padding: 15px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    padding-right: 7px;
+}
+
+.items-header-wrapper{
+    color: #999;
 }
