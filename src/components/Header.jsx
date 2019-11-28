@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {userIcon} from "./icons";
-import {cartIcon} from "./icons";
+import {userIcon} from "../icons";
+import {cartIcon} from "../icons";
 import "./header.css";
 
 const Header = () => {
