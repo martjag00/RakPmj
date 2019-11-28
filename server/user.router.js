@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require("./user.model.js");
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 
 /**
  *  gets all users
