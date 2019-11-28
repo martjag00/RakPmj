@@ -21,8 +21,8 @@ const DB_URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASS}@
 app.use(bodyParser.json());
 
 app.use("/api/v1/auth", authRouter);
-app.use("/api/v1/", itemRouter);
-app.use("/api/v1/", userRouter);
+app.use("/api/v1", itemRouter);
+app.use("/api/v1/users", userRouter);
 
 
 app.get('/', (req, res) => {

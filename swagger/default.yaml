@@ -23,6 +23,22 @@ paths:
       responses:
         200:
           description: OK.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                  user:
+                    type: object
+                    properties:
+                      email:
+                        type: string
+                      createdAt:
+                        type: string
+                      _id:
+                        type: string
         422:
           description: bad email or password
         401:
