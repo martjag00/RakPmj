@@ -6,13 +6,20 @@ class LoginPage extends React.PureComponent {
     constructor(props){
         super(props);
         this.state = {
-            username:"",
+            email: "",
             password:""
         };
     }
     handleSubmit = (event) =>{
-        event.preventDefault();
         console.log("submit", this.state);
+        event.preventDefault();
+        fetch("api/users/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(this.state)
+        });
     };
 
     handleChange = (e) => {
@@ -25,13 +32,7 @@ class LoginPage extends React.PureComponent {
         return (
             <div className="form">
                 <form className="login-form" onSubmit={this.handleSubmit}>
-                    <input
-                        type="text"
-                        placeholder="username"
-                        name="username"
-                        value={this.state.username}
-                        onChange={this.handleChange}
-                    />
+                    <input name={"email"} value={this.state.email} onChange={this.handleChange} type="email" required="required"/>
                     <input
                         type="password"
                         placeholder="password"

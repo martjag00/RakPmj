@@ -14,6 +14,9 @@
 .header__logo{
     width: 80px;
 }
+.icontext{
+    display:inline-block;
+}
 .header__buttons{
     display: flex;
     justify-content: space-between;

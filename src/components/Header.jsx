@@ -10,6 +10,7 @@ const Header = () => {
             <Link to={"/"}>
                 <img className="header__logo" src="/images/tlu_logo.png"/>
             </Link>
+            <div className={"icontext"}> <a href={"/login"}>Login/<br/>Register</a></div>
             <div className="header__buttons">
                 <div className={"header__button"}>
                     <img src={userIcon}/>
