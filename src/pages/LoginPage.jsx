@@ -41,7 +41,7 @@ class LoginPage extends React.PureComponent {
                         onChange={this.handleChange}
                     />
                     <button>login</button>
-                    <p className="message">Not registered? <a href="#">Create an account</a></p>
+                    <p className="message">Not registered? <a href={"/signup"}>Create an account</a></p>
                 </form>
             </div>
         );
