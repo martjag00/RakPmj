@@ -1,8 +1,14 @@
 import React from "react";
 import "./form.css";
+import PropTypes from "prop-types";
+
 
 class LoginPage extends React.PureComponent {
 
+    static propTypes = {
+        history: PropTypes.object.isRequired,
+        onLogin: PropTypes.func.isRequired,
+    };
     constructor(props){
         super(props);
         this.state = {
@@ -10,25 +16,30 @@ class LoginPage extends React.PureComponent {
             password:""
         };
     }
-    handleSubmit = (event) =>{
+    handleSubmit = (event) => {
         console.log("submit", this.state);
         event.preventDefault();
-        fetch("api/users/login", {
+        fetch("api/v1/auth/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(this.state)
-        });
-    };
+        })
+            .then(res => res.json())
+            .then(({token, user}) => {
+                this.props.onLogin(token, user);
+                this.props.history.push(`/users/${user._id}`);
+            });
+    }
 
-    handleChange = (e) => {
+    handleChange = (event) => {
         this.setState({
-           [e.target.name]: e.target.value,
+           [event.target.name]: event.target.value,
         });
     };
 
-    render(){
+    render() {
         return (
             <div className="form">
                 <form className="login-form" onSubmit={this.handleSubmit}>
