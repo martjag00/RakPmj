@@ -1,11 +1,11 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {userIcon} from "../icons";
-import {cartIcon} from "../icons";
+import {profileIcon, cartIcon} from "../icons";
 import "./header.css";
 import PropTypes from "prop-types";
 
-const Header = (props) => {
+const Header = ({token, user}) => {
+    console.log("header", token, user);
     return (
         <div className="header">
             <Link to={"/"}>
@@ -13,8 +13,9 @@ const Header = (props) => {
             </Link>
             <div className="header__buttons">
                 <div className={"header__button"}>
-                    {props.user.email && <WelcomeIcon user={props.user} />}
-                    {!props.user.email && <LoginRegisterIcon/>}
+                    {user.email && <WelcomeIcon user={user} />}
+
+                    {!user.email && <LoginRegisterIcon/>}
                 </div>
                 <div className={"header__button"}>
                     <img src={cartIcon}/>
@@ -25,25 +26,25 @@ const Header = (props) => {
     );
 };
 
-const LoginRegisterIcon = () => (
-    <>
-        <img className={"icon"} src={userIcon}/>
-        <div className={"header__button-text"}> <a href={"/login"}>Login/<br/>Register</a></div>
-    </>
-);
-
-const WelcomeIcon = (props) => (
-    <>
-        <img className={"icon"} src={userIcon}/>
-        <div className={"header__button-text"}>
-            <Link to={`/users/${props.user._id}`} activeClassName="active">Welcome {props.user.email}</Link></div>
-    </>
-);
-
 Header.propTypes={
     token: PropTypes.string,
     user: PropTypes.object,
 };
+
+const LoginRegisterIcon = () => (
+    <Link classname = {"header__button"} to={"/login"}>
+        <img src={profileIcon} />
+        <div className={"header__button-text"}>Login/<br/>Register</div>
+    </Link>
+);
+
+
+const WelcomeIcon = ({user}) => (
+    <Link className ={"header__button"} to={`/users/${user._id}`}>
+        <img src={profileIcon}/>
+        <div className={"header__button-text"}>Welcome, {user.email}</div>
+    </Link>
+);
 
 WelcomeIcon.propTypes={
     user: PropTypes.object,

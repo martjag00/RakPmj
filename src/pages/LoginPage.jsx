@@ -26,16 +26,16 @@ class LoginPage extends React.PureComponent {
             },
             body: JSON.stringify(this.state)
         })
-            .then(res => res.json())
-            .then(({token, user}) => {
-                this.props.onLogin(token, user);
+            .then( res => res.json())
+            .then( ({token, user}) => {
+                this.props.onLogin({token, user});
                 this.props.history.push(`/users/${user._id}`);
             });
     }
 
-    handleChange = (event) => {
+    handleChange = (e) => {
         this.setState({
-           [event.target.name]: event.target.value,
+           [e.target.name]: e.target.value,
         });
     };
 

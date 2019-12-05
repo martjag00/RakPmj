@@ -38,7 +38,8 @@ class App extends React.Component{
                                     {...props}
                                     token={this.state.token}
                                     user={this.state.user}
-                                />}
+                                />
+                                }
                             />
                             <Route path="/" exact component={HomePage} />
                             <Route

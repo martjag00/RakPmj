@@ -13,7 +13,7 @@ class SignupPage extends React.PureComponent {
         super(props);
         this.state = {
             email:"",
-            password:"",
+            password:""
         };
     }
     handleSubmit = (event) =>{
