@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./itempage.css";
 
 class ItemPage extends React.PureComponent {
 

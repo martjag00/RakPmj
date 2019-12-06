@@ -12,7 +12,7 @@ const bodyParser = require("body-parser");
 
 
 if(process.env.NODE_ENV !== "production"){
-    require('dotenv').config();
+    require("dotenv").config();
 }
 
 
@@ -36,7 +36,6 @@ app.get('/items/*', (req, res) => {
 app.use(express.static('dist'));
 
 function listen(){
-    // heroku vajab process.env.PORT
     app.listen(PORT, () => {
         console.log("Server started", PORT);
         console.log(`http://localhost:${PORT}`);
