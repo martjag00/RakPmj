@@ -5,7 +5,6 @@ import "./itemslist.css";
 
 
 const ItemsList = (props) => {
-    console.log("items list", props);
     return (
         <div className={"items-layout"}>
             {
@@ -30,7 +29,7 @@ ItemsList.propTypes ={
 const Item = (props) => {
 
     return (
-        <Link to={`/items/${props.id}`} class={"item"}>
+        <Link to={`/items/${props.id}`} className={"item"}>
             <div className={"item__img-wrapper"}>
                 <img src={props.imgSrc}/>
             </div>
