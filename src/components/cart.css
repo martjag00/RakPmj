@@ -64,19 +64,6 @@
     padding: 5px 0;
 }
 
-.cart__summary .submit-button {
-    background: #d41d46;
-    font-size: large;
-    text-transform: uppercase;
-    color: white;
-    font-weight: bold;
-    padding: 10px 20px;
-    float: right;
-    border: 0;
-    display: flex;
-    align-items: center;
-}
-
 .submit-button svg {
     padding-left: 15px;
 }

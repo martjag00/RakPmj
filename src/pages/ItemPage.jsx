@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./itempage.css";
+import FancyButton from "../components/FancyButton.jsx";
 
 class ItemPage extends React.PureComponent {
 
@@ -34,10 +35,26 @@ class ItemPage extends React.PureComponent {
 
         return (
             <>
-                <div className={"itemContainer"}>
-                    <img src={this.state.imgSrc} />
-                    <div className={"item__title"}>{this.state.title}</div>
-                    <div className={"item__price"}>{this.state.price}</div>
+                <div className={"box spacer itemPage"}>
+                    <div style={{
+                      display: "flex",
+
+                    }}>
+                        <div className={"itemPage-left"}>
+                            <img src={this.state.imgSrc} />
+                        </div>
+                        <div className={"itemPage-content"}>
+                            <div><h2>{this.state.title}</h2></div>
+                            <div>
+                                <p className={"text--bold text--yellow"}>
+                                    {this.state.price} €
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={"itemPage-footer"}>
+                        <FancyButton onClick={()=>0}>Osta</FancyButton>
+                    </div>
                 </div>
             </>
         );
@@ -49,5 +66,3 @@ ItemPage.propTypes= {
 };
 
 export default ItemPage;
-
-
