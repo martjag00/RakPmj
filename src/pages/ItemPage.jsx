@@ -2,8 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./itempage.css";
 import FancyButton from "../components/FancyButton.jsx";
+import {connect} from "react-redux";
+import {addItem} from "../store/store";
 
 class ItemPage extends React.PureComponent {
+
+    static propTypes = {
+        dispatch : PropTypes.func.isRequired,
+    };
 
     constructor(props){
         super(props);
@@ -28,11 +34,13 @@ class ItemPage extends React.PureComponent {
         .catch(err => {
             console.log("item page", err);
         });
-    }
+    };
+
+    handleBuy = () => {
+        this.props.dispatch(addItem(this.state));
+    };
 
     render() {
-        console.log("itemId", this.props.match.params.itemId);
-
         return (
             <>
                 <div className={"box spacer itemPage"}>
@@ -53,7 +61,7 @@ class ItemPage extends React.PureComponent {
                         </div>
                     </div>
                     <div className={"itemPage-footer"}>
-                        <FancyButton onClick={()=>0}>Osta</FancyButton>
+                        <FancyButton onClick={this.handleBuy}>Osta</FancyButton>
                     </div>
                 </div>
             </>
@@ -65,4 +73,4 @@ ItemPage.propTypes= {
     match: PropTypes.object.isRequired,
 };
 
-export default ItemPage;
+export default connect()(ItemPage);

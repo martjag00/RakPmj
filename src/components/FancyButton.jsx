@@ -3,8 +3,8 @@ import { FaAngleRight } from "react-icons/fa";
 import PropTypes from "prop-types";
 import "./fancybutton.css";
 
-const FancyButton = ({children}) => (
-        <div className={"btn btn--fancy"}>
+const FancyButton = ({children, onClick}) => (
+        <div className={"btn btn--fancy"} onClick={onClick}>
             <div className={"btn-inner"}>
                 <div>
                     {children}
@@ -16,6 +16,7 @@ const FancyButton = ({children}) => (
 
 FancyButton.propTypes = {
     children: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
 };
 
 export default FancyButton;

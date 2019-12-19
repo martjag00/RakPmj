@@ -30,3 +30,9 @@ h2{
     max-width: 1200px;
     margin: 0 auto;
 }
+
+.hover--opacity {
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all .2s;
+}
