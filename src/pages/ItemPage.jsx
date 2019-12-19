@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./itempage.css";
 import FancyButton from "../components/FancyButton.jsx";
 import {connect} from "react-redux";
-import {addItem} from "../store/store";
+import {addItem} from "../store/actions.js";
 
 class ItemPage extends React.PureComponent {
 

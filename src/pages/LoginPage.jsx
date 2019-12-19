@@ -1,13 +1,15 @@
 import React from "react";
 import "./form.css";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import { userUpdate } from "../store/actions";
 
 
 class LoginPage extends React.PureComponent {
 
     static propTypes = {
         history: PropTypes.object.isRequired,
-        onLogin: PropTypes.func.isRequired,
+        dispatch: PropTypes.func.isRequired,
     };
     constructor(props){
         super(props);
@@ -25,12 +27,17 @@ class LoginPage extends React.PureComponent {
             },
             body: JSON.stringify(this.state)
         })
-            .then( res => res.json())
-            .then( ({token, user}) => {
-                this.props.onLogin({token, user});
-                this.props.history.push(`/users/${user._id}`);
-            });
-    }
+        .then( res => res.json())
+        .then(this.handleSuccess)
+        .catch(err => {
+            console.log("Error", err);
+        });
+    };
+
+    handleSuccess = ({user}) => {
+        this.props.dispatch(userUpdate(user));
+        this.props.history.push(`/users/${user._id}`);
+    };
 
     handleChange = (e) => {
         this.setState({
@@ -42,7 +49,7 @@ class LoginPage extends React.PureComponent {
         return (
             <div className="form">
                 <form className="login-form" onSubmit={this.handleSubmit}>
-                    <input name={"email"} value={this.state.email} onChange={this.handleChange} type="email" required="required"/>
+                    <input name={"email"} value={this.state.email} onChange={this.handleChange} type="email" required="required" placeholder="email"/>
                     <input
                         type="password"
                         placeholder="password"
@@ -58,4 +65,4 @@ class LoginPage extends React.PureComponent {
     }
 }
 
-export default LoginPage;
+export default connect()(LoginPage);

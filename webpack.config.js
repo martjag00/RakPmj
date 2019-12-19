@@ -9,7 +9,8 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'static/bundle.js'
     },
-     plugins: [
+    devtool: "eval-source-map",
+    plugins: [
          new CleanWebpackPlugin(),
          new CopyPlugin([
          {
