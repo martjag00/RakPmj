@@ -10,7 +10,7 @@ const Header = ({user}) => {
     return (
         <div className="header">
             <Link to={"/"}>
-                <img className="header__logo" src="/images/tlu_logo.png"/>
+                <img className="header__logo" src="/static/images/tlu_logo.png"/>
             </Link>
             <div className="header__buttons">
                 <div className={"header__button"}>

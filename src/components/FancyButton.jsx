@@ -4,15 +4,15 @@ import PropTypes from "prop-types";
 import "./fancybutton.css";
 
 const FancyButton = ({children}) => (
-    <div className={"btn btn--fancy"}>
-        <div className={"btn-inner"}>
-            <div>
-                {children}
+        <div className={"btn btn--fancy"}>
+            <div className={"btn-inner"}>
+                <div>
+                    {children}
+                </div>
+                <FaAngleRight/>
             </div>
-            <FaAngleRight/>
         </div>
-    </div>
-);
+    );
 
 FancyButton.propTypes = {
     children: PropTypes.string.isRequired,

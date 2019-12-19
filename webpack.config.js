@@ -7,15 +7,21 @@ module.exports = {
     entry: './src/index.jsx',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: 'static/bundle.js'
     },
      plugins: [
          new CleanWebpackPlugin(),
          new CopyPlugin([
          {
-             from: "public"
+             from: "public/index.html"
          }
-        ])
+        ]),
+         new CopyPlugin([
+             {
+                 from: "public/images",
+                 to: "static/images"
+             }
+         ]),
      ],
     module: {
         rules: [
@@ -37,7 +43,15 @@ module.exports = {
               test: /\.(js|jsx)$/,
               exclude: /node_modules/,
               use: 'babel-loader'
-            }
+            },
+            {
+                test: /\.(png|jpe?g|gif|woff|woff2)$/i,
+                use: [
+                    {
+                        loader:'file-loader',
+                    },
+                ],
+            },
         ]
     },
     devServer: {
