@@ -1,0 +1,202 @@
+openapi: '3.0.0'
+info:
+  title: TLU
+  description: ""
+  version: "1.0.0"
+servers:
+  - url: localhost:3000/api/v1
+security:
+  - bearerAuth: []
+paths:
+
+  /items:
+    get:
+      operationId: getItems
+      summary: Returns a list of items
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Item"
+        500:
+          description: Error
+
+  /items/{itemId}:
+    get:
+      operationId: getItem
+      summary: Returns an item object
+      parameters:
+        - $ref: "#/components/parameters/itemIdParam"
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Item"
+        500:
+          description: Error
+
+  /users/{userId}:
+    get:
+      operationId: getUser
+      summary: Returns an user object
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: "#/components/parameters/userIdParam"
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        403:
+          description: Forbidden
+        500:
+          description: Error
+
+  /users/{userId}/cart/{itemId}:
+    put:
+      operationId: addItemToCart
+      summary: Adds an item to a cart
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: "#/components/parameters/userIdParam"
+        - $ref: "#/components/parameters/itemIdParam"
+      responses:
+        200:
+          description: OK
+        403:
+          description: Forbidden
+        500:
+          description: Error
+
+    delete:
+      operationId: removeItemFromCart
+      summary: Removes an item from a cart
+      parameters:
+        - $ref: "#/components/parameters/userIdParam"
+        - $ref: "#/components/parameters/itemIdParam"
+      responses:
+        200:
+          description: OK
+        403:
+          description: Forbidden
+        500:
+          description: err
+
+  /auth/login:
+    post:
+      operationId: login
+      summary: User signs in
+      description: ""
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        200:
+          description: OK.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                  user:
+                    type: object
+                    properties:
+                      email:
+                        type: string
+                      createdAt:
+                        type: string
+                      _id:
+                        type: string
+        422:
+          description: bad email or password
+        401:
+          description: unauthorized
+  /auth/signup:
+    post:
+      operationId: signup
+      summary: User makes an account
+      description: ""
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        200:
+          description: OK.
+        422:
+          description: bad email or password
+        401:
+          description: unauthorized
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Item:
+      type: object
+      properties:
+        _id:
+          type: string
+        createdAt:
+          type: string
+        price:
+          type: string
+        title:
+          type: string
+    User:
+      type: object
+      properties:
+        _id:
+          type: string
+        createdAt:
+          type: string
+        cart:
+          type: array
+          items:
+            type: string
+        email:
+          type: string
+  parameters:
+    userIdParam:
+      in: path
+      name: userId
+      schema:
+        type: string
+      required: true
+
+    itemIdParam:
+      in: path
+      name: itemId
+      schema:
+        type: string
+      required: true
+

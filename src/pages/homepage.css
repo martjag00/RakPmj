@@ -1,0 +1,57 @@
+body {
+    background: black;
+}
+
+.filters-wrapper {
+    border-radius: 5px;
+    padding: 15px;
+    background: black;
+    margin: 0px 5px;
+    display: flex;
+}
+
+.filters-wrapper > .toggler {
+    margin-right: 25px;
+}
+
+.body-wrapper{
+    max-width: 1000px;
+    margin: 0 auto;
+    background-image: linear-gradient(to bottom, #000000, #070506, #0e0b0b, #130f0f, #171312, #211713, #2b1a14, #341e14, #462312, #57290e, #692f08, #7a3500);
+}
+
+.items-header-wrapper{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 5px;
+    padding: 15px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    padding-right: 7px;
+}
+
+.items-header-wrapper{
+    color: #999;
+}
+
+.hero {
+    height: 200px;
+    margin: 0 7px;
+    background: url(https://cdn.pixabay.com/photo/2017/07/03/20/17/abstract-2468874_960_720.jpg);
+    background-size: cover;
+    background-position: 0 20%;
+    display: flex;
+    align-items: center;
+}
+
+.hero>div {
+    color: white;
+    background: rgba(0, 0, 0, .7);
+    width: 100%;
+    padding: 25px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.hero span:first-child {}
