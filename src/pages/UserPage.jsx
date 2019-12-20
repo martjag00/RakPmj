@@ -18,7 +18,13 @@ class UserPage extends React.PureComponent {
     handleLogout = () => {
         this.props.dispatch(userUpdate(null));
         this.props.dispatch(tokenUpdate(null));
-    }
+    };
+
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value,
+        });
+    };
 
     render(){
         return (
@@ -31,7 +37,7 @@ class UserPage extends React.PureComponent {
                         <div className="field">
                             {this.props.user.createdAt}
                         </div>
-                        <FancyButton onClick={this.handleLogout}>Logi välja</FancyButton>
+                        <FancyButton onClick={this.handleLogout}>Log out</FancyButton>
                     </div>
                 </div>
             </div>
