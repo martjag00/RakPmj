@@ -5,15 +5,16 @@ const Item = require("./item.model.js");
 const DB_URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASS}@cluster0-5x1uj.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
 const connect = () => {
-  return mongoose.connect(DB_URL)
-      .then(() =>{
-          console.log("Database access success!");
-          migrate();
-          return true;
-      })
-      .catch(err => {
-          console.log("Database access err: ", err);
-      });
+    return mongoose.connect(DB_URL)
+        .then(() => {
+            console.log("Database access successful");
+            //deleteAllItems();
+            migrate();
+            return true;
+        })
+        .catch(err => {
+            console.log("Database access error: ", err);
+        });
 };
 
 function migrate() {
