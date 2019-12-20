@@ -12,6 +12,25 @@ export const ITEM_REMOVED = "ITEM_REMOVED";
 export const USER_UPDATE = "USER_UPDATE";
 export const TOKEN_UPDATE = "TOKEN_UPDATE";
 
+export const removeItem = (itemId) => (dispatch, getState) => {
+    const store = getState();
+    const token = selectors.getToken(store);
+    const userId = selectors.getUser(store)._id;
+    services.removeItemFromCart({itemId, token, userId})
+        .then(() => {
+            toast.success("Item successfully removed !");
+            dispatch({
+                type: ITEM_REMOVED,
+                payload: itemId,
+            });
+        })
+        .catch(err => {
+            console.error(err);
+            toast.error("Item not deleted !");
+        });
+};
+
+
 export const addItem = (item) => (dispatch, getState) => {
     const store = getState();
     const itemId = item._id;
@@ -19,7 +38,7 @@ export const addItem = (item) => (dispatch, getState) => {
     const userId = selectors.getUser(store)._id;
     services.addItemToCart({itemId, token, userId})
         .then(() => {
-            toast.success("Toode edukalt lisatud! :)");
+            toast.success("Item added !");
             dispatch({
                 type: ITEM_ADDED,
                 payload: itemId,
@@ -27,7 +46,7 @@ export const addItem = (item) => (dispatch, getState) => {
         })
         .catch(err => {
             console.error(err);
-            toast.error("Toote lisamine ebaõnnestus!");
+            toast.error("Item not added !");
         });
 };
 
@@ -58,11 +77,6 @@ export const itemsRequest = (items) => ({
 export const itemsFailure = (items) => ({
     type: ITEMS_FAILURE,
     payload: items,
-});
-
-export const removeItem = (_id) => ({
-    type: ITEM_REMOVED,
-    payload: _id,
 });
 
 export const userUpdate = (user) => ({
